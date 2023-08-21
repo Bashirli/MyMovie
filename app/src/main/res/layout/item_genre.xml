@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="genreModel"
+            type="com.bashirli.mymovie.domain.model.details.movie.GenreDetailsModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/resistsansdisplayregular"
+            android:text="@{genreModel.name}"
+            android:textColor="@color/white"
+            android:layout_marginStart="24dp"
+            app:chipBackgroundColor="@color/black_C"
+            app:chipCornerRadius="17dp"
+            app:textStartPadding="14dp"
+            app:textEndPadding="14dp"
+            app:rippleColor="@color/blue"
+            app:chipStrokeWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </com.google.android.material.chip.Chip>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

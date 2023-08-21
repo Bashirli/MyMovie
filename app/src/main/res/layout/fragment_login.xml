@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
+    tools:context=".presentation.ui.fragment.auth.login.LoginFragment">
+
+
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/top_vector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        android:transitionName="leftImage"
+        android:scaleType="fitXY"
+        android:src="@drawable/left_vector_login"
+        app:layout_constraintBottom_toTopOf="@+id/imageView6"
+        app:layout_constraintEnd_toStartOf="@+id/imageView6"
+        app:layout_constraintHeight_max="220dp"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        android:scaleType="fitXY"
+        android:transitionName="rightImage"
+        android:src="@drawable/right_vector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_max="220dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView5" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonGoBack"
+        style="@style/Widget.Material3.Button.IconButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/black_C"
+        android:elevation="3dp"
+        app:icon="@drawable/baseline_arrow_back_ios_new_24"
+        app:iconTint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="@color/blue" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="30dp"
+        app:cardBackgroundColor="@color/black_D"
+        app:cardCornerRadius="17dp"
+        android:transitionName="mainCard"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingHorizontal="30dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+           <ImageView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/top_icon_divider"
+               android:layout_marginVertical="11dp"
+               />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/welcomeBack"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/resistsansdisplay_bold"
+                android:layout_marginTop="3dp"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:boxStrokeWidth="2dp"
+                android:id="@+id/inputEmail"
+                app:boxCornerRadiusTopStart="17dp"
+                app:boxCornerRadiusTopEnd="17dp"
+                app:boxCornerRadiusBottomStart="17dp"
+                app:boxCornerRadiusBottomEnd="17dp"
+                app:placeholderTextColor="@color/white"
+                app:boxStrokeColor="@color/text_input_stroke"
+                android:hint="@string/email"
+                app:hintTextColor="@color/white"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/red"
+                app:boxStrokeErrorColor="@color/red"
+                android:layout_marginTop="35dp"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/blue"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editEmail"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:drawableStart="@drawable/email"
+                    android:drawablePadding="7dp"
+
+                    android:paddingVertical="20dp"
+                    android:textColor="@color/white"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:boxStrokeWidth="2dp"
+                android:layout_marginTop="5dp"
+                app:placeholderTextColor="@color/white"
+                app:boxStrokeColor="@color/text_input_stroke"
+                android:hint="@string/password"
+                app:hintTextColor="@color/white"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/red"
+                app:boxStrokeErrorColor="@color/red"
+                android:id="@+id/inputPassword"
+                app:boxCornerRadiusTopStart="17dp"
+                app:boxCornerRadiusTopEnd="17dp"
+                app:boxCornerRadiusBottomStart="17dp"
+                app:boxCornerRadiusBottomEnd="17dp"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/blue"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/editPass"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:drawableStart="@drawable/key"
+                    android:drawablePadding="7dp"
+                    android:paddingVertical="20dp"
+                    android:textColor="@color/white"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:text="@string/forgotPass"
+                android:textColor="@color/blue"
+                app:rippleColor="@color/white"
+                android:fontFamily="@font/resistsansdisplayregular"
+
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonLogin"
+                android:paddingVertical="18dp"
+                app:backgroundTint="@color/blue"
+                android:layout_marginTop="35dp"
+                android:text="@string/login"
+                android:transitionName="mainButton"
+                android:textColor="@color/white"
+                app:rippleColor="@color/white"
+                android:textSize="15sp"
+                android:fontFamily="@font/resistsansdisplay_bold"
+                app:cornerRadius="17dp"
+
+                />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:layout_marginBottom="50dp"
+                >
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/materialButton4"
+                    style="@style/Widget.Material3.Button.IconButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:paddingHorizontal="45dp"
+                    android:paddingVertical="20dp"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="17dp"
+                    app:icon="@drawable/apple_icon"
+                    app:iconTintMode="multiply"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/materialButton5"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:rippleColor="@color/black" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/materialButton5"
+                    style="@style/Widget.Material3.Button.IconButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="45dp"
+                    android:paddingVertical="20dp"
+
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="17dp"
+                    app:icon="@drawable/google_icon"
+
+                    app:iconTintMode="multiply"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/materialButton4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:rippleColor="@color/red" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
