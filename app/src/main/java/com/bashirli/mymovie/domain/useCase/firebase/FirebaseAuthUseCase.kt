@@ -11,4 +11,6 @@ class FirebaseAuthUseCase @Inject constructor(private val repo:FirebaseRepositor
 
     suspend fun getToken()=repo.getToken()
 
+    suspend fun logOut()=repo.logOut()
+
 }

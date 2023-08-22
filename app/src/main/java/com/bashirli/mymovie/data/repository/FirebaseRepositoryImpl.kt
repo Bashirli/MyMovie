@@ -4,6 +4,7 @@ import android.net.Uri
 import android.util.Log
 import com.bashirli.mymovie.common.util.Resource
 import com.bashirli.mymovie.data.dto.user.UserDTO
+import com.bashirli.mymovie.domain.model.user.UserModel
 import com.bashirli.mymovie.domain.repository.FirebaseRepository
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -109,6 +110,49 @@ class FirebaseRepositoryImpl @Inject constructor(
             }else{
                 emit(Resource.error("Error",null))
             }
+        }catch (e:Exception){
+            emit(Resource.error(e.localizedMessage,null))
+        }
+    }
+
+    override suspend fun getUserData(token: String): Flow<Resource<UserModel>> = callbackFlow {
+
+           lateinit var userModel: UserModel
+           trySend(Resource.loading(null))
+
+           val listener = userDB.document(token)
+               .collection("Data")
+               .addSnapshotListener { value, error ->
+                   if(error!=null){
+                       trySend(Resource.error(error.localizedMessage?:"Error",null))
+                   }
+
+                   if(value!=null){
+
+                       value.documents.forEach {
+                           val email = it.get("email") as String
+                           val backgroundImage = it.get("backgroundImage") as String
+                           val dateOfBirth = it.get("dateOfBirth") as String
+                           val firstName = it.get("firstName") as String
+                           val lastName = it.get("lastName") as String
+                           val image = it.get("image") as String
+                           userModel= UserModel(
+                               email, firstName, lastName, dateOfBirth, image
+                           )
+
+                       }
+                       trySend(Resource.success(userModel))
+                   }
+               }
+           awaitClose { listener.remove() }
+
+    }
+
+    override suspend fun logOut(): Flow<Resource<String>> = flow {
+        try {
+            emit(Resource.loading(null))
+            auth.signOut()
+            emit(Resource.success(""))
         }catch (e:Exception){
             emit(Resource.error(e.localizedMessage,null))
         }

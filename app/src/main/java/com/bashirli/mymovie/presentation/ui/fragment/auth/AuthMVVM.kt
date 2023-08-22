@@ -115,7 +115,7 @@ class AuthMVVM @Inject constructor(
 
 
     sealed class AuthUiState(){
-        data class RegisterUser(val message:String):AuthUiState()
+        data class RegisterUser(val message:String) : AuthUiState()
 
         object CreateUser : AuthUiState()
 

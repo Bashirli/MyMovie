@@ -17,9 +17,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     override fun setup() {
         tabSetup()
-        binding.apply {
 
-        }
     }
 
     private fun tabSetup(){

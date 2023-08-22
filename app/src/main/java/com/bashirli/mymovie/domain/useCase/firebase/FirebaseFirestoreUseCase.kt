@@ -11,4 +11,6 @@ class FirebaseFirestoreUseCase @Inject constructor(
 
     suspend fun createUser(userDTO: UserDTO) = repo.createUser(userDTO)
 
+    suspend fun getUser(token:String) = repo.getUserData(token)
+
 }

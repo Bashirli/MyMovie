@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="userData"
+            type="com.bashirli.mymovie.domain.model.user.UserModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".presentation.ui.fragment.profile.edit.EditProfileFragment">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout11"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonGoBack"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:icon="@drawable/baseline_arrow_back_ios_new_24"
+                app:iconTint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:rippleColor="@color/blue" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/resistsansdisplay_bold"
+                android:text="@string/editProfile"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/buttonGoBack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonGoBack"
+                app:layout_constraintTop_toTopOf="@+id/buttonGoBack" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView13"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="35dp"
+            app:cardCornerRadius="17dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout11">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/profile_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView12"
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:layout_marginStart="12dp"
+                    app:cardCornerRadius="33dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:setImageURL="@{userData.image}"
+                        />
+
+                </androidx.cardview.widget.CardView>
+
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button.IconButton"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="6dp"
+                    app:backgroundTint="@color/black_C"
+                    app:icon="@drawable/brush_1"
+                    app:iconGravity="textStart"
+                    app:iconSize="11dp"
+                    app:iconTint="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@+id/cardView12"
+                    app:layout_constraintStart_toEndOf="@+id/cardView12"
+                    app:layout_constraintTop_toTopOf="@+id/cardView12"
+                    app:rippleColor="@color/blue" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/resistsansdisplayregular"
+            android:text="@string/username"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/cardView13"
+            app:layout_constraintTop_toBottomOf="@+id/cardView13" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/materialButton6"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/resistsansdisplayregular"
+            android:text="@string/edit"
+            android:textColor="@color/gray"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView23"
+            app:layout_constraintEnd_toEndOf="@+id/cardView13"
+            app:layout_constraintTop_toTopOf="@+id/textView23"
+            app:rippleColor="@color/blue" />
+
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/resistsansdisplayregular"
+            android:text="@string/email"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/textView23"
+            app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/resistsansdisplayregular"
+            android:text="@string/show"
+            android:textColor="@color/gray"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView24"
+            app:layout_constraintEnd_toEndOf="@+id/materialButton6"
+            app:layout_constraintTop_toTopOf="@+id/textView24"
+            app:rippleColor="@color/blue" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

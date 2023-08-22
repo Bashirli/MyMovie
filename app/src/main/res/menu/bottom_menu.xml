@@ -18,14 +18,9 @@
         android:title="@string/search">
     </item>
 
-    <item
-        android:id="@+id/action_wishlist"
-        android:icon="@drawable/shield"
-        android:title="@string/wishlist">
-    </item>
 
     <item
-        android:id="@+id/action_profile"
+        android:id="@+id/profileFragment"
         android:icon="@drawable/person"
         android:title="@string/profile">
     </item>

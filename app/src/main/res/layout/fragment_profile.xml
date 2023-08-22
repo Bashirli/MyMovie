@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="userData"
+            type="com.bashirli.mymovie.domain.model.user.UserModel" />
+    </data>
+    <androidx.core.widget.NestedScrollView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:fillViewport="true"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".presentation.ui.fragment.profile.ProfileFragment">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="260dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/profile_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:foreground="@drawable/details_image_gradient"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="200dp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="105dp"
+                    android:layout_height="105dp"
+                    app:cardCornerRadius="58dp"
+                    app:strokeColor="@color/gray"
+                    app:strokeWidth="2dp"
+
+                    app:cardElevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:setImageURL="@{userData.image}"
+                            android:scaleType="fitXY" />
+                    </com.google.android.material.card.MaterialCardView>
+
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonIconEditProfile"
+                    style="@style/Widget.Material3.Button.IconButton"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    app:backgroundTint="@color/black_C"
+                    app:icon="@drawable/pen"
+                    app:iconGravity="textStart"
+                    app:iconSize="17dp"
+                    app:iconTint="@color/white"
+                    app:iconTintMode="multiply"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:rippleColor="@color/blue" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="60dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/resistsansdisplay_bold"
+                android:gravity="center"
+                android:text='@{userData.firstName+" "+userData.lastName}'
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout9" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="35dp"
+                android:orientation="vertical"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView16">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/resistsansdisplay_bold"
+                    android:text="@string/account"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonEditProfile"
+                    android:layout_marginTop="5dp"
+                    app:iconSize="25dp"
+                    app:cornerRadius="0dp"
+                    app:backgroundTint="@android:color/transparent"
+                    app:rippleColor="@color/blue"
+                    android:text="@string/editProfile"
+                    app:icon="@drawable/brush_1"
+                    android:gravity="start|center"
+                    app:iconTint="@color/blue"
+                    android:fontFamily="@font/resistsansdisplayregular"
+                    android:textSize="20sp"
+                    />
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonSettings"
+                    app:iconSize="25dp"
+                    android:layout_marginTop="5dp"
+                    app:cornerRadius="0dp"
+                    app:backgroundTint="@android:color/transparent"
+                    app:rippleColor="@color/blue"
+                    android:text="@string/settings"
+                    app:icon="@drawable/setting"
+                    android:gravity="start|center"
+                    app:iconTint="@color/blue"
+                    android:fontFamily="@font/resistsansdisplayregular"
+                    android:textSize="20sp"
+                    />
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonWatched"
+                    android:layout_marginTop="5dp"
+                    app:iconSize="25dp"
+                    app:cornerRadius="0dp"
+                    app:backgroundTint="@android:color/transparent"
+                    app:rippleColor="@color/blue"
+                    android:text="@string/watched"
+                    app:icon="@drawable/clock"
+                    android:gravity="start|center"
+                    app:iconTint="@color/blue"
+                    android:fontFamily="@font/resistsansdisplayregular"
+                    android:textSize="20sp"
+                    />
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonPassAndSecurity"
+                    app:iconSize="25dp"
+                    android:layout_marginTop="5dp"
+                    app:cornerRadius="0dp"
+                    app:backgroundTint="@android:color/transparent"
+                    app:rippleColor="@color/blue"
+                    android:text="@string/passwordAndSecurity"
+                    app:icon="@drawable/lock"
+                    android:gravity="start|center"
+                    app:iconTint="@color/blue"
+                    android:fontFamily="@font/resistsansdisplayregular"
+                    android:textSize="20sp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/resistsansdisplay_bold"
+                    android:text="@string/help"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonSupport"
+                    app:iconSize="25dp"
+                    app:cornerRadius="0dp"
+                    app:backgroundTint="@android:color/transparent"
+                    app:rippleColor="@color/blue"
+                    android:text="@string/customerSupport"
+                    app:icon="@drawable/clip_board"
+                    android:gravity="start|center"
+                    android:layout_marginTop="5dp"
+                    app:iconTint="@color/blue"
+                    android:fontFamily="@font/resistsansdisplayregular"
+                    android:textSize="20sp"
+                    />
+
+
+            </LinearLayout>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+</layout>
