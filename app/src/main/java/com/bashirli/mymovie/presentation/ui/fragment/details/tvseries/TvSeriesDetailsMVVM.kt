@@ -15,7 +15,7 @@ import com.bashirli.mymovie.domain.model.details.images.ImagesModel
 import com.bashirli.mymovie.domain.model.details.reviews.ReviewModel
 import com.bashirli.mymovie.domain.model.details.tvseries.TvSeriesDetailsModel
 import com.bashirli.mymovie.domain.model.tvseries.TvSeriesResultModel
-import com.bashirli.mymovie.domain.useCase.details.GetTvSeriesDetailsUseCase
+import com.bashirli.mymovie.domain.useCase.remote.details.GetTvSeriesDetailsUseCase
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -101,7 +101,7 @@ class TvSeriesDetailsMVVM @Inject constructor(
 
     fun getCredits(seriesId: Int){
         viewModelScope.launch {
-            getTvSeriesDetailsUseCase.credits(seriesId).collect{
+            getTvSeriesDetailsUseCase.credits(seriesId).collectLatest{
                 when(it.status){
                     Status.SUCCESS->{
                         it.data?.let {

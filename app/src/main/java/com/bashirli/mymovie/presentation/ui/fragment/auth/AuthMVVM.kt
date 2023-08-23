@@ -9,8 +9,8 @@ import com.bashirli.mymovie.common.util.Resource
 import com.bashirli.mymovie.common.util.Status
 import com.bashirli.mymovie.common.util.TokenManager
 import com.bashirli.mymovie.data.dto.user.UserDTO
-import com.bashirli.mymovie.domain.useCase.firebase.FirebaseAuthUseCase
-import com.bashirli.mymovie.domain.useCase.firebase.FirebaseFirestoreUseCase
+import com.bashirli.mymovie.domain.useCase.remote.firebase.FirebaseAuthUseCase
+import com.bashirli.mymovie.domain.useCase.remote.firebase.FirebaseFirestoreUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

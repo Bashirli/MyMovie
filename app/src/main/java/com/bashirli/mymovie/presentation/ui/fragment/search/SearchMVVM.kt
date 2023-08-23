@@ -8,9 +8,9 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.bashirli.mymovie.domain.model.celebs.CelebsResultModel
 import com.bashirli.mymovie.domain.model.movies.ResultModel
-import com.bashirli.mymovie.domain.useCase.celeb.GetCelebsUseCase
-import com.bashirli.mymovie.domain.useCase.movies.GetForYouMoviesUseCase
-import com.bashirli.mymovie.domain.useCase.search.GetSearchMoviesUseCase
+import com.bashirli.mymovie.domain.useCase.remote.celeb.GetCelebsUseCase
+import com.bashirli.mymovie.domain.useCase.remote.movies.GetForYouMoviesUseCase
+import com.bashirli.mymovie.domain.useCase.remote.search.GetSearchMoviesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

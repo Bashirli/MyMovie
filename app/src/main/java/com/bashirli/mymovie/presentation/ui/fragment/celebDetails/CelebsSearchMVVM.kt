@@ -11,10 +11,10 @@ import com.bashirli.mymovie.domain.model.celebs.CelebsResultModel
 import com.bashirli.mymovie.domain.model.celebs.detail.CelebDetailsModel
 import com.bashirli.mymovie.domain.model.celebs.movies.CelebMoviesModel
 import com.bashirli.mymovie.domain.model.celebs.tvSeries.CelebTvSeriesModel
-import com.bashirli.mymovie.domain.useCase.celeb.GetCelebDetailsUseCase
-import com.bashirli.mymovie.domain.useCase.celeb.GetCelebMoviesUseCase
-import com.bashirli.mymovie.domain.useCase.celeb.GetCelebTvSeriesUseCase
-import com.bashirli.mymovie.domain.useCase.celeb.GetCelebsUseCase
+import com.bashirli.mymovie.domain.useCase.remote.celeb.GetCelebDetailsUseCase
+import com.bashirli.mymovie.domain.useCase.remote.celeb.GetCelebMoviesUseCase
+import com.bashirli.mymovie.domain.useCase.remote.celeb.GetCelebTvSeriesUseCase
+import com.bashirli.mymovie.domain.useCase.remote.celeb.GetCelebsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

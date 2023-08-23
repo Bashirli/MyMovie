@@ -1,7 +1,7 @@
 package com.bashirli.mymovie.di
 
-import com.bashirli.mymovie.data.repository.FirebaseRepositoryImpl
-import com.bashirli.mymovie.domain.repository.FirebaseRepository
+import com.bashirli.mymovie.data.repository.remote.FirebaseRepositoryImpl
+import com.bashirli.mymovie.domain.repository.remote.FirebaseRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage

@@ -4,10 +4,10 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.bashirli.mymovie.common.serviceEnum.TvSeriesServiceEnumType
 import com.bashirli.mymovie.data.dto.tvseries.TvSeriesResult
-import com.bashirli.mymovie.data.service.Service
+import com.bashirli.mymovie.data.service.remote.Service
 
 class TvSeriesPaging (
-    private val service:Service,
+    private val service: Service,
     private val enumType:TvSeriesServiceEnumType,
     private val seriesId:Int=0
 ) : PagingSource<Int,TvSeriesResult>() {

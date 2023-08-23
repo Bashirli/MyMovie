@@ -8,6 +8,7 @@ import com.bashirli.mymovie.R
 import com.bashirli.mymovie.common.base.BaseFragment
 import com.bashirli.mymovie.common.util.CustomProgressBar
 import com.bashirli.mymovie.common.util.Status
+import com.bashirli.mymovie.data.dto.local.FavoritesDTO
 import com.bashirli.mymovie.databinding.FragmentDetailsBinding
 import com.bashirli.mymovie.domain.model.details.movie.DetailsModel
 import com.bashirli.mymovie.domain.model.details.cast.CastBaseModel
@@ -30,6 +31,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
 
     private val viewModel by viewModels<DetailsMVVM>()
     private val args by navArgs<DetailsFragmentArgs>()
+    private lateinit var _detailsModel:DetailsModel
     private val genreAdapter= GenreAdapter()
     private val companyAdapter= CompaniesAdapter()
     private val crewAdapter= CrewAdapter()
@@ -37,6 +39,8 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
     private val castAdapter= CastAdapter()
     private val recommendationAdapter= MoviesAdapter()
     private val reviewAdapter= ReviewAdapter()
+
+    private  var favState : Boolean = false
 
     override fun onViewCreateFinished() {
         observeData()
@@ -99,6 +103,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
                 when(it){
                     is DetailsMVVM.State.MovieDetails->{
                         setData(it.data)
+                        checkItemHaveInTable(id)
                         pb.cancel()
                     }
                     is DetailsMVVM.State.Reviews->{
@@ -124,6 +129,12 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
                         alert.show()
 
                     }
+
+                    is DetailsMVVM.State.IsInFav -> {
+                        favState=it.state
+                        pb.cancel()
+                        setupFavButton()
+                    }
                 }
             }
 
@@ -135,8 +146,39 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
         }
     }
 
+
+    private fun setupFavButton(){
+        with(binding){
+            with(_detailsModel){
+
+                val item = FavoritesDTO(
+                    id,title,voteAverage,releaseDate,posterPath
+                )
+
+                if(favState){
+                    buttonFavorite.setIconResource(R.drawable.filled_heart)
+                }else{
+                    buttonFavorite.setIconResource(R.drawable.heart)
+                }
+
+                buttonFavorite.setOnClickListener {
+                    if(favState){
+                        buttonFavorite.setIconResource(R.drawable.heart)
+                        viewModel.deleteItem(id)
+                    }else{
+                        buttonFavorite.setIconResource(R.drawable.filled_heart)
+                        viewModel.insertItem(item)
+                    }
+                    favState=!favState
+                }
+            }
+        }
+    }
+
+
     private fun setData(it: DetailsModel){
         with(binding){
+            _detailsModel=it
             detailsModel=it
             genreAdapter.updateList(it.genres)
             companyAdapter.updateList(it.productionCompanies)

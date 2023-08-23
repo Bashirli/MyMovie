@@ -25,6 +25,7 @@ import com.bashirli.mymovie.data.dto.details.reviews.AuthorDetails
 import com.bashirli.mymovie.data.dto.details.reviews.ReviewDTO
 import com.bashirli.mymovie.data.dto.details.tvseries.Season
 import com.bashirli.mymovie.data.dto.details.tvseries.TvSeriesDetailsDTO
+import com.bashirli.mymovie.data.dto.local.FavoritesDTO
 import com.bashirli.mymovie.data.dto.movies.MoviesDTO
 import com.bashirli.mymovie.data.dto.movies.Result
 import com.bashirli.mymovie.data.dto.tvseries.TvSeriesDTO
@@ -53,6 +54,7 @@ import com.bashirli.mymovie.domain.model.details.reviews.AuthorModel
 import com.bashirli.mymovie.domain.model.details.reviews.ReviewModel
 import com.bashirli.mymovie.domain.model.details.tvseries.SeasonsModel
 import com.bashirli.mymovie.domain.model.details.tvseries.TvSeriesDetailsModel
+import com.bashirli.mymovie.domain.model.local.FavoritesModel
 import com.bashirli.mymovie.domain.model.movies.GenreBaseModel
 import com.bashirli.mymovie.domain.model.movies.GenreModel
 import com.bashirli.mymovie.domain.model.movies.MoviesModel
@@ -434,3 +436,12 @@ fun TvSeriesDetailsDTO.toDetailsModel() = TvSeriesDetailsModel(
     voteAverage,
     voteCount
 )
+
+
+fun List<FavoritesDTO>.toFavoritesModel()=map {
+    with(it){
+        FavoritesModel(
+            id, title, voteAverage, releaseYear, image
+        )
+    }
+}

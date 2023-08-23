@@ -3,11 +3,10 @@ package com.bashirli.mymovie.data.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.bashirli.mymovie.data.dto.celebs.CelebsResult
-import com.bashirli.mymovie.data.mapper.toCelebsResultModel
-import com.bashirli.mymovie.data.service.Service
+import com.bashirli.mymovie.data.service.remote.Service
 
 class CelebsPaging constructor(
-    private val service:Service
+    private val service: Service
 ) : PagingSource<Int,CelebsResult>() {
 
     override fun getRefreshKey(state: PagingState<Int, CelebsResult>): Int? {

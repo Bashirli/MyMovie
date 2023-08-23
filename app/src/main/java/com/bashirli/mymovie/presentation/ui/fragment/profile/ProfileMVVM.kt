@@ -1,6 +1,5 @@
 package com.bashirli.mymovie.presentation.ui.fragment.profile
 
-import android.provider.ContactsContract.Profile
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,9 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.bashirli.mymovie.common.util.Status
 import com.bashirli.mymovie.common.util.TokenManager
 import com.bashirli.mymovie.domain.model.user.UserModel
-import com.bashirli.mymovie.domain.repository.FirebaseRepository
-import com.bashirli.mymovie.domain.useCase.firebase.FirebaseAuthUseCase
-import com.bashirli.mymovie.domain.useCase.firebase.FirebaseFirestoreUseCase
+import com.bashirli.mymovie.domain.useCase.remote.firebase.FirebaseAuthUseCase
+import com.bashirli.mymovie.domain.useCase.remote.firebase.FirebaseFirestoreUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

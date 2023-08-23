@@ -8,16 +8,18 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.bashirli.mymovie.common.util.Resource
 import com.bashirli.mymovie.common.util.Status
+import com.bashirli.mymovie.data.dto.local.FavoritesDTO
 import com.bashirli.mymovie.domain.model.details.movie.DetailsModel
 import com.bashirli.mymovie.domain.model.details.cast.CastBaseModel
 import com.bashirli.mymovie.domain.model.details.images.ImagesModel
 import com.bashirli.mymovie.domain.model.details.reviews.ReviewModel
 import com.bashirli.mymovie.domain.model.movies.ResultModel
-import com.bashirli.mymovie.domain.useCase.details.GetDetailsCreditUseCase
-import com.bashirli.mymovie.domain.useCase.details.GetDetailsImagesUseCase
-import com.bashirli.mymovie.domain.useCase.details.GetMovieDetailsUseCase
-import com.bashirli.mymovie.domain.useCase.details.GetMovieReviewsUseCase
-import com.bashirli.mymovie.domain.useCase.movies.GetRecommendationsUseCase
+import com.bashirli.mymovie.domain.useCase.local.FavoritesUseCase
+import com.bashirli.mymovie.domain.useCase.remote.details.GetDetailsCreditUseCase
+import com.bashirli.mymovie.domain.useCase.remote.details.GetDetailsImagesUseCase
+import com.bashirli.mymovie.domain.useCase.remote.details.GetMovieDetailsUseCase
+import com.bashirli.mymovie.domain.useCase.remote.details.GetMovieReviewsUseCase
+import com.bashirli.mymovie.domain.useCase.remote.movies.GetRecommendationsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -29,7 +31,8 @@ class DetailsMVVM @Inject constructor(
     private val getDetailsCreditUseCase: GetDetailsCreditUseCase,
     private val getDetailsImagesUseCase: GetDetailsImagesUseCase,
     private val getRecommendationsUseCase: GetRecommendationsUseCase,
-    private val getMovieReviewsUseCase: GetMovieReviewsUseCase
+    private val getMovieReviewsUseCase: GetMovieReviewsUseCase,
+    private val favoritesUseCase: FavoritesUseCase
 ) : ViewModel() {
 
     private val _liveData=MutableLiveData<State>()
@@ -128,6 +131,36 @@ class DetailsMVVM @Inject constructor(
         }
     }
 
+    fun checkItemHaveInTable(id:Int){
+        viewModelScope.launch {
+            favoritesUseCase.checkItemHaveInTable(id).collectLatest {
+                when(it.status){
+                    Status.SUCCESS -> {
+                        it.data?.let {
+                            _liveData.value=State.IsInFav(it)
+                        }
+                    }
+                    Status.ERROR -> {
+                        _liveData.value=State.Error(it.message?:"Error")
+                    }
+                    Status.LOADING -> _liveData.value=State.Loading
+                }
+            }
+        }
+    }
+
+
+    fun deleteItem(id:Int){
+        viewModelScope.launch {
+            favoritesUseCase.deleteItem(id)
+        }
+    }
+
+    fun insertItem(favoritesDTO: FavoritesDTO){
+        viewModelScope.launch {
+            favoritesUseCase.insertItem(favoritesDTO)
+        }
+    }
 
     sealed class State(){
         data class MovieDetails(val data : DetailsModel) : State()
@@ -137,6 +170,8 @@ class DetailsMVVM @Inject constructor(
         data class Images(val data : ImagesModel) : State()
 
         data class Reviews(val data : ReviewModel) : State()
+
+        data class IsInFav(val state:Boolean) : State()
 
         object Loading : State()
 

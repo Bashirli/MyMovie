@@ -3,12 +3,8 @@ package com.bashirli.mymovie.data.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.bashirli.mymovie.common.serviceEnum.ServiceEnumType
-import com.bashirli.mymovie.data.dto.movies.MoviesDTO
 import com.bashirli.mymovie.data.dto.movies.Result
-import com.bashirli.mymovie.data.mapper.toResultModel
-import com.bashirli.mymovie.data.service.Service
-import com.bashirli.mymovie.domain.model.movies.MoviesModel
-import javax.inject.Inject
+import com.bashirli.mymovie.data.service.remote.Service
 
 class MoviesPaging  constructor(
     val service: Service,

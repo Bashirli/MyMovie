@@ -2,12 +2,12 @@ package com.bashirli.mymovie.di
 
 import android.content.Context
 import com.bashirli.mymovie.common.util.BASE_URL
-import com.bashirli.mymovie.data.repository.ApiRepositoryImpl
-import com.bashirli.mymovie.data.service.ApiKeyInterceptor
-import com.bashirli.mymovie.data.service.Service
-import com.bashirli.mymovie.data.source.ApiSource
-import com.bashirli.mymovie.data.source.ApiSourceImpl
-import com.bashirli.mymovie.domain.repository.ApiRepository
+import com.bashirli.mymovie.data.repository.remote.ApiRepositoryImpl
+import com.bashirli.mymovie.data.service.remote.ApiKeyInterceptor
+import com.bashirli.mymovie.data.service.remote.Service
+import com.bashirli.mymovie.data.source.remote.ApiSource
+import com.bashirli.mymovie.data.source.remote.ApiSourceImpl
+import com.bashirli.mymovie.domain.repository.remote.ApiRepository
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import dagger.Module
 import dagger.Provides
