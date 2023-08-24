@@ -101,7 +101,7 @@
                             app:backgroundTint="@color/blue"
                             app:cornerRadius="10dp"
                             app:icon="@drawable/filled_heart"
-
+                            android:id="@+id/buttonHeart"
                             app:iconGravity="textStart"
                             app:iconSize="15dp"
                             app:iconTint="@color/white"

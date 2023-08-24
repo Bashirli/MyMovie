@@ -1,10 +1,12 @@
 package com.bashirli.mymovie.presentation.ui.fragment.search
 
 import android.app.Dialog
+import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -16,7 +18,9 @@ import com.bashirli.mymovie.common.util.ToastEnum
 import com.bashirli.mymovie.common.util.gone
 import com.bashirli.mymovie.common.util.showToast
 import com.bashirli.mymovie.common.util.visible
+import com.bashirli.mymovie.databinding.FragmentHomeBinding
 import com.bashirli.mymovie.databinding.FragmentSearchBinding
+import com.bashirli.mymovie.databinding.FragmentSettingsBinding
 import com.bashirli.mymovie.databinding.LayoutFilterBinding
 import com.bashirli.mymovie.presentation.ui.fragment.home.movies.MoviesBottomFragment
 import com.bashirli.mymovie.presentation.ui.fragment.home.movies.adapter.MoviesAdapter
@@ -35,6 +39,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
     private val recommendationAdapter = MoviesAdapter()
     private val celebsAdapter = CelebsPagingAdapter()
     private val searchAdapter = SearchPagingAdapter()
+
 
     override fun onViewCreateFinished() {
         observeData()
@@ -94,25 +99,27 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(FragmentSearchBinding
                     searchAdapter.submitData(pagingData)
                     Log.e("search", "adapter size ${searchAdapter.itemCount}")
 
-                    searchAdapter.loadStateFlow.collectLatest {
-                        with(binding){
-                            when(it.refresh){
-                                is LoadState.Loading->{
-                                    progressBar.visible()
+                    view?.let {
+                        searchAdapter.loadStateFlow.collectLatest {
+                            with(binding){
+                                when(it.refresh){
+                                    is LoadState.Loading->{
+                                        progressBar.visible()
 
-                                }
-                                is LoadState.NotLoading->{
-                                    progressBar.gone()
-
-                                    if (layoutSearch.visibility == View.GONE && searchAdapter.itemCount>0 ) {
-                                        layoutSearch.visible()
-                                        layoutInitial.gone()
                                     }
-                                }
-                                is LoadState.Error->{
-                                    progressBar.gone()
-                                    (it.refresh as LoadState.Error).error.localizedMessage?.let {
-                                        requireActivity().showToast(it,ToastEnum.ERROR)
+                                    is LoadState.NotLoading->{
+                                        progressBar.gone()
+
+                                        if (layoutSearch.visibility == View.GONE && searchAdapter.itemCount>0 ) {
+                                            layoutSearch.visible()
+                                            layoutInitial.gone()
+                                        }
+                                    }
+                                    is LoadState.Error->{
+                                        progressBar.gone()
+                                        (it.refresh as LoadState.Error).error.localizedMessage?.let {
+                                            requireActivity().showToast(it,ToastEnum.ERROR)
+                                        }
                                     }
                                 }
                             }

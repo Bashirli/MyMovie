@@ -104,4 +104,6 @@
     <string name="edit">Edit</string>
     <string name="yes">Yes</string>
     <string name="logOutMessage">Are you sure to log out?</string>
+    <string name="itemDeleted">Item deleted</string>
+    <string name="undo">Undo</string>
 </resources>

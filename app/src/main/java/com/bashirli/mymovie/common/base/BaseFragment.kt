@@ -12,7 +12,7 @@ abstract class BaseFragment<VB:ViewBinding> (
 ): Fragment() {
 
     private var _binding:VB?=null
-    val binding get()=_binding!!
+    val binding : VB get()=_binding as VB
 
     abstract fun onViewCreateFinished()
     abstract fun setup()

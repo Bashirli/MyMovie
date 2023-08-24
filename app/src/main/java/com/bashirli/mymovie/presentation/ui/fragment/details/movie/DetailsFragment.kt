@@ -1,5 +1,6 @@
 package com.bashirli.mymovie.presentation.ui.fragment.details.movie
 
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -103,7 +104,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
                 when(it){
                     is DetailsMVVM.State.MovieDetails->{
                         setData(it.data)
-                        checkItemHaveInTable(id)
+                        checkItemHaveInTable(it.data.id)
                         pb.cancel()
                     }
                     is DetailsMVVM.State.Reviews->{
@@ -132,6 +133,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
 
                     is DetailsMVVM.State.IsInFav -> {
                         favState=it.state
+                        Log.e("state","${it.state}")
                         pb.cancel()
                         setupFavButton()
                     }
