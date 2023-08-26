@@ -28,8 +28,12 @@ import com.bashirli.mymovie.data.dto.details.tvseries.TvSeriesDetailsDTO
 import com.bashirli.mymovie.data.dto.local.FavoritesDTO
 import com.bashirli.mymovie.data.dto.movies.MoviesDTO
 import com.bashirli.mymovie.data.dto.movies.Result
+import com.bashirli.mymovie.data.dto.selectedCategory.CategoryDetailsDTO
+import com.bashirli.mymovie.data.dto.selectedCategory.Item
 import com.bashirli.mymovie.data.dto.tvseries.TvSeriesDTO
 import com.bashirli.mymovie.data.dto.tvseries.TvSeriesResult
+import com.bashirli.mymovie.domain.model.categorySelected.CategoryDetailsModel
+import com.bashirli.mymovie.domain.model.categorySelected.ItemModel
 import com.bashirli.mymovie.domain.model.celebs.CelebsModel
 import com.bashirli.mymovie.domain.model.celebs.CelebsResultModel
 import com.bashirli.mymovie.domain.model.celebs.detail.CelebDetailsModel
@@ -445,3 +449,15 @@ fun List<FavoritesDTO>.toFavoritesModel()=map {
         )
     }
 }
+
+fun List<Item>.toCategoryItemList()=map{
+    with(it){
+        ItemModel(
+            adult, backdropPath, genreIds, id, mediaType, originalLanguage, originalTitle, overview, popularity, posterPath, releaseDate, title, video, voteAverage, voteCount
+        )
+    }
+}
+
+fun CategoryDetailsDTO.toCategoryModel()= CategoryDetailsModel(
+    createdBy,description,favoriteCount,id,itemCount,items?.toCategoryItemList(),name,posterPath
+)

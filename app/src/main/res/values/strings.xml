@@ -73,6 +73,7 @@
     <string name="changeEmail">Change email address</string>
     <string name="fillProfile">Fill your profile</string>
     <string name="emailVerification">Email verification</string>
+    <string name="category">Category</string>
     <string name="firstName">First Name</string>
     <string name="lastName">Last Name</string>
     <string name="dateOfBirth">Date of birth</string>

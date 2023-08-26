@@ -11,6 +11,7 @@ import com.bashirli.mymovie.data.dto.details.images.ImagesDTO
 import com.bashirli.mymovie.data.dto.details.reviews.ReviewDTO
 import com.bashirli.mymovie.data.dto.details.tvseries.TvSeriesDetailsDTO
 import com.bashirli.mymovie.data.dto.movies.MoviesDTO
+import com.bashirli.mymovie.data.dto.selectedCategory.CategoryDetailsDTO
 import com.bashirli.mymovie.data.dto.tvseries.TvSeriesDTO
 import com.bashirli.mymovie.domain.model.celebs.tvSeries.CelebTvCastModel
 import com.bashirli.mymovie.domain.model.details.reviews.ReviewModel
@@ -114,6 +115,9 @@ interface Service {
 
     @GET("tv/{series_id}/credits")
     suspend fun getTvSeriesCredits(@Path ("series_id") seriesId:Int) : Response<CastDTO>
+
+    @GET("list/{list_id}")
+    suspend fun getCategoryDetails(@Path("list_id") listId :Int) : Response<CategoryDetailsDTO>
 
 
 }

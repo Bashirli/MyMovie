@@ -5,6 +5,7 @@ import androidx.paging.map
 import com.bashirli.mymovie.common.util.Resource
 import com.bashirli.mymovie.common.util.Status
 import com.bashirli.mymovie.data.mapper.toCastBaseModel
+import com.bashirli.mymovie.data.mapper.toCategoryModel
 import com.bashirli.mymovie.data.mapper.toCelebDetailsModel
 import com.bashirli.mymovie.data.mapper.toCelebMoviesModel
 import com.bashirli.mymovie.data.mapper.toCelebTvSeriesModel
@@ -17,6 +18,7 @@ import com.bashirli.mymovie.data.mapper.toReviewModel
 import com.bashirli.mymovie.data.mapper.toTvSeriesModel
 import com.bashirli.mymovie.data.mapper.toTvSeriesResultModel
 import com.bashirli.mymovie.data.source.remote.ApiSource
+import com.bashirli.mymovie.domain.model.categorySelected.CategoryDetailsModel
 import com.bashirli.mymovie.domain.model.celebs.CelebsResultModel
 import com.bashirli.mymovie.domain.model.celebs.detail.CelebDetailsModel
 import com.bashirli.mymovie.domain.model.celebs.movies.CelebMoviesModel
@@ -355,6 +357,22 @@ class ApiRepositoryImpl constructor(
 
             Status.SUCCESS -> {
                 emit(Resource.success(response.data?.toCastBaseModel()))
+            }
+
+            else -> {}
+        }
+    }
+
+    override suspend fun getCategoryDetails(listId: Int): Flow<Resource<CategoryDetailsModel>> = flow {
+        emit(Resource.loading(null))
+        val response = apiSource.getCategoryDetails(listId)
+        when (response.status) {
+            Status.ERROR -> {
+                emit(Resource.error(response.message ?: "Error", null))
+            }
+
+            Status.SUCCESS -> {
+                emit(Resource.success(response.data?.toCategoryModel()))
             }
 
             else -> {}

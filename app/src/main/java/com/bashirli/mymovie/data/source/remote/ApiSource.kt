@@ -13,6 +13,7 @@ import com.bashirli.mymovie.data.dto.details.images.ImagesDTO
 import com.bashirli.mymovie.data.dto.details.reviews.ReviewDTO
 import com.bashirli.mymovie.data.dto.details.tvseries.TvSeriesDetailsDTO
 import com.bashirli.mymovie.data.dto.movies.Result
+import com.bashirli.mymovie.data.dto.selectedCategory.CategoryDetailsDTO
 import com.bashirli.mymovie.data.dto.tvseries.TvSeriesDTO
 import com.bashirli.mymovie.data.dto.tvseries.TvSeriesResult
 import com.bashirli.mymovie.domain.model.details.reviews.ReviewModel
@@ -78,5 +79,7 @@ interface ApiSource {
     suspend fun getTvSeriesDetailsImages(seriesId:Int) : Resource<ImagesDTO>
 
     suspend fun getTvSeriesCredit(seriesId:Int) : Resource<CastDTO>
+
+    suspend fun getCategoryDetails(listId:Int) : Resource<CategoryDetailsDTO>
 
 }

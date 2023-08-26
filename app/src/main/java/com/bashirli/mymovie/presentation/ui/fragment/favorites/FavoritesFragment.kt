@@ -69,17 +69,15 @@ class FavoritesFragment : BaseFragment<FragmentFavoritesBinding>(FragmentFavorit
     }
 
     private fun deleteFavItem(position:Int){
+
             val adapterList = ArrayList(adapter.getAdapterList())
             val item = adapterList.get(position)
 
             item.id?.let {
 
-                Log.e("test",adapterList.toString())
                 adapterList.removeAt(position)
                 viewModel.deleteItem(it)
 
-                Log.e("test3",position.toString())
-                Log.e("test3",adapterList.toString())
                 adapter.updateList(adapterList)
                 Snackbar.make(requireView(),R.string.itemDeleted,Snackbar.LENGTH_LONG).setAction(R.string.undo){
                     adapterList.add(position,item)
@@ -87,10 +85,6 @@ class FavoritesFragment : BaseFragment<FragmentFavoritesBinding>(FragmentFavorit
                     viewModel.insertItem(FavoritesDTO(
                         item.id,item.title,item.voteAverage,item.releaseYear,item.image
                     ))
-
-
-                    Log.e("test2",position.toString())
-                    Log.e("test2",adapterList.toString())
                 }.show()
 
             }

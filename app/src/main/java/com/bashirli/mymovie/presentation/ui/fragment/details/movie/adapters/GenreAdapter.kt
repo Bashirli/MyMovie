@@ -10,11 +10,22 @@ import com.bashirli.mymovie.domain.model.details.movie.GenreDetailsModel
 
 class GenreAdapter : RecyclerView.Adapter<GenreAdapter.GenreViewHolder>() {
 
+    var onClickGenreItem : (Int) -> Unit = {}
+
     inner class GenreViewHolder(private val binding:ItemGenreBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(item: GenreDetailsModel){
             binding.genreModel=item
             binding.executePendingBindings()
         }
+
+        fun find(item : GenreDetailsModel,onClickGenreItem : (Int) -> Unit = {}){
+            binding.chipButton.setOnClickListener {
+                item.id?.let {
+                    onClickGenreItem(it)
+                }
+            }
+        }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GenreViewHolder {
@@ -29,6 +40,7 @@ class GenreAdapter : RecyclerView.Adapter<GenreAdapter.GenreViewHolder>() {
     override fun onBindViewHolder(holder: GenreViewHolder, position: Int) {
         val item=differ.currentList.get(position)
         holder.bind(item)
+        holder.find(item,onClickGenreItem)
     }
 
     private val genreDiffUtil=object:DiffUtil.ItemCallback<GenreDetailsModel>(){

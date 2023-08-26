@@ -169,7 +169,7 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding>(FragmentMoviesBinding
         }
 
         categoryAdapter.onClickCategoryItem={
-
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToCategoryFragment(it.id))
         }
     }
 

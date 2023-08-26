@@ -93,6 +93,10 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(FragmentDetailsBind
             )
         }
 
+        genreAdapter.onClickGenreItem={
+            findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToCategoryFragment(it))
+        }
+
 
     }
 

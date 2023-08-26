@@ -6,6 +6,7 @@ import com.bashirli.mymovie.data.dto.details.cast.CastDTO
 import com.bashirli.mymovie.data.dto.details.images.ImagesDTO
 import com.bashirli.mymovie.data.dto.details.reviews.ReviewDTO
 import com.bashirli.mymovie.data.dto.tvseries.TvSeriesResult
+import com.bashirli.mymovie.domain.model.categorySelected.CategoryDetailsModel
 import com.bashirli.mymovie.domain.model.celebs.CelebsResultModel
 import com.bashirli.mymovie.domain.model.celebs.detail.CelebDetailsModel
 import com.bashirli.mymovie.domain.model.celebs.movies.CelebMoviesModel
@@ -81,6 +82,8 @@ interface ApiRepository {
     suspend fun getTvSeriesDetailsImages(seriesId:Int) : Flow<Resource<ImagesModel>>
 
     suspend fun getTvSeriesCredit(seriesId:Int) : Flow<Resource<CastBaseModel>>
+
+    suspend fun getCategoryDetails(listId:Int) : Flow<Resource<CategoryDetailsModel>>
 
 
 }

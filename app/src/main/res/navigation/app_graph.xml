@@ -20,6 +20,13 @@
         <action
             android:id="@+id/action_homeFragment_to_tvSeriesDetailsFragment"
             app:destination="@id/tvSeriesDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
@@ -53,6 +60,13 @@
         <action
             android:id="@+id/action_detailsFragment_to_celebSearchFragment"
             app:destination="@id/celebSearchFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left" />
     </fragment>
     <fragment
         android:id="@+id/reviewsFragment"
@@ -243,4 +257,15 @@
         android:id="@+id/editProfileFragment"
         android:name="com.bashirli.mymovie.presentation.ui.fragment.profile.edit.EditProfileFragment"
         android:label="EditProfileFragment" />
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.bashirli.mymovie.presentation.ui.fragment.category.CategoryFragment"
+        android:label="CategoryFragment" >
+        <argument
+            android:name="categoryId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_categoryFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
 </navigation>

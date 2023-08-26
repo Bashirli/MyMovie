@@ -18,6 +18,7 @@ import com.bashirli.mymovie.data.dto.details.images.ImagesDTO
 import com.bashirli.mymovie.data.dto.details.reviews.ReviewDTO
 import com.bashirli.mymovie.data.dto.details.tvseries.TvSeriesDetailsDTO
 import com.bashirli.mymovie.data.dto.movies.Result
+import com.bashirli.mymovie.data.dto.selectedCategory.CategoryDetailsDTO
 import com.bashirli.mymovie.data.dto.tvseries.TvSeriesDTO
 import com.bashirli.mymovie.data.dto.tvseries.TvSeriesResult
 import com.bashirli.mymovie.data.paging.CelebsPaging
@@ -249,6 +250,10 @@ class ApiSourceImpl @Inject constructor(
 
     override suspend fun getTvSeriesCredit(seriesId: Int): Resource<CastDTO> {
         return handleResponse(service.getTvSeriesCredits(seriesId))
+    }
+
+    override suspend fun getCategoryDetails(listId: Int): Resource<CategoryDetailsDTO> {
+        return handleResponse(service.getCategoryDetails(listId))
     }
 
     override suspend fun getCelebDetails(personId: Int): Resource<CelebDetailsDTO> {

@@ -23,7 +23,6 @@ class FavoritesAdapter : RecyclerView.Adapter<FavoritesAdapter.FavoritesViewHold
         }
         fun find(
             item: FavoritesModel,
-            position: Int,
             onClickHeartButton : (Int) -> Unit = {position->},
             onClickFavoritesItem : (FavoritesModel) -> Unit = {}
         ){
@@ -32,7 +31,7 @@ class FavoritesAdapter : RecyclerView.Adapter<FavoritesAdapter.FavoritesViewHold
                     onClickFavoritesItem(item)
                 }
                 buttonHeart.setOnClickListener {
-                    onClickHeartButton(position)
+                    onClickHeartButton(bindingAdapterPosition)
                 }
             }
         }
@@ -51,7 +50,7 @@ class FavoritesAdapter : RecyclerView.Adapter<FavoritesAdapter.FavoritesViewHold
         val item = favList[position]
         with(holder){
             bind(item)
-            find(item, position, onClickHeartButton, onClickFavoritesItem)
+            find(item, onClickHeartButton, onClickFavoritesItem)
         }
 
 
