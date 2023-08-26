@@ -1,6 +1,8 @@
 # MyMovie
 
-<img width="693" alt="Frame 12x" src="https://github.com/Bashirli/MyMovie/assets/109737647/aff7b598-b55e-4843-b178-424f75a6044d">
+<img width="693" alt="Frame 12x" src="https://github.com/Bashirli/MyMovie/assets/109737647/4d7e0a15-f77c-4812-a744-0ac573db7ef2">
+
+
 
 
 ------------------------------------------------------------------
@@ -41,42 +43,51 @@ Technologies I use in my app:
 ------------------------------------------------------------------
 App screens:
 ------------------------------------------------------------------
-
-<img width="881" alt="Frame 2" src="https://github.com/Bashirli/MyMovie/assets/109737647/1d11beaf-5e1d-45f2-b2f7-6413bec0c767">
-<img width="881" alt="Frame 16" src="https://github.com/Bashirli/MyMovie/assets/109737647/7b4d3329-c15a-477d-a502-8c3edf12305c">
-
-<img width="881" alt="Frame 17" src="https://github.com/Bashirli/MyMovie/assets/109737647/5770396e-91df-47cf-9027-a84b0e5c7ee8">
-
-<img width="881" alt="Frame 18" src="https://github.com/Bashirli/MyMovie/assets/109737647/70ecb9c6-a8eb-4e4a-9dab-08bca0f731f6">
-
-<img width="881" alt="Frame 19" src="https://github.com/Bashirli/MyMovie/assets/109737647/38e9f24b-4f25-4610-8dbe-d84c9c79f65a">
-
-<img width="881" alt="Frame 3" src="https://github.com/Bashirli/MyMovie/assets/109737647/3665809a-d0aa-4576-9fe5-e969b06e6ef9">
-
-<img width="881" alt="Frame 4" src="https://github.com/Bashirli/MyMovie/assets/109737647/68e8f41e-30dd-46fc-94a6-99f2ccd5e449">
-
-<img width="881" alt="Frame 5" src="https://github.com/Bashirli/MyMovie/assets/109737647/9048e2ea-02ec-49f0-ac4e-7eac9f4bf49c">
-
-<img width="881" alt="Frame 6" src="https://github.com/Bashirli/MyMovie/assets/109737647/0e9ce7c1-0f5a-4108-8836-721047e9bbe9">
-
-<img width="881" alt="Frame 7" src="https://github.com/Bashirli/MyMovie/assets/109737647/25cd56de-8845-4869-bdb0-fd75051a095e">
-
-<img width="881" alt="Frame 8" src="https://github.com/Bashirli/MyMovie/assets/109737647/225071aa-83fd-4830-9307-1c1e10120118">
-
-<img width="881" alt="Frame 9" src="https://github.com/Bashirli/MyMovie/assets/109737647/23a6f084-347b-4c69-b40e-9367f6270ee5">
-
-<img width="881" alt="Frame 15" src="https://github.com/Bashirli/MyMovie/assets/109737647/882bb9ef-47b6-4d82-ae3d-d2ef797abc08">
-
-<img width="881" alt="Frame 10" src="https://github.com/Bashirli/MyMovie/assets/109737647/4e1654c9-6850-48e1-8293-d16bfbbfb10f">
+<img width="881" alt="Frame 2" src="https://github.com/Bashirli/MyMovie/assets/109737647/b65d6c97-3929-41b9-88fb-e7c3607dee23">
 
 
-<img width="881" alt="Frame 11" src="https://github.com/Bashirli/MyMovie/assets/109737647/aa44a819-7dc1-48fd-88d0-7719ab52ef1f">
+<img width="881" alt="Frame 16" src="https://github.com/Bashirli/MyMovie/assets/109737647/09eb4d88-3a96-4f58-95b1-cbfbb228cc90">
 
-<img width="881" alt="Frame 12" src="https://github.com/Bashirli/MyMovie/assets/109737647/4ec2c710-7124-4690-89ac-9c1b028ff18c">
+<img width="881" alt="Frame 17" src="https://github.com/Bashirli/MyMovie/assets/109737647/2e85467d-2979-41a5-a320-d427e912b1ac">
 
-<img width="881" alt="Frame 13" src="https://github.com/Bashirli/MyMovie/assets/109737647/60693bd3-b140-4e97-9d82-113697f7a0c0">
 
-<img width="881" alt="Frame 14" src="https://github.com/Bashirli/MyMovie/assets/109737647/0f0f6c43-8ef6-4eda-9954-a9d4139fc016">
+<img width="881" alt="Frame 18" src="https://github.com/Bashirli/MyMovie/assets/109737647/6b89265e-dcaa-4923-a3c2-e89d0aca1cca">
+
+<img width="881" alt="Frame 19" src="https://github.com/Bashirli/MyMovie/assets/109737647/4baa8ad8-3f6f-4a7a-9511-90cb78d8d05c">
+
+
+<img width="881" alt="Frame 3" src="https://github.com/Bashirli/MyMovie/assets/109737647/fd05e692-c685-433b-8128-c4c2bc971944">
+
+<img width="881" alt="Frame 4" src="https://github.com/Bashirli/MyMovie/assets/109737647/75f2c943-2f2e-4430-b2e4-dd3c8344a41c">
+
+<img width="881" alt="Frame 5" src="https://github.com/Bashirli/MyMovie/assets/109737647/be859543-5847-49c5-8604-277962f3665c">
+
+<img width="881" alt="Frame 6" src="https://github.com/Bashirli/MyMovie/assets/109737647/0a85e549-eaf4-42c4-81cb-7f8ac4097535">
+
+<img width="881" alt="Frame 7" src="https://github.com/Bashirli/MyMovie/assets/109737647/f63aae5b-1121-4152-80f2-2e729ad55f6d">
+
+<img width="881" alt="Frame 8" src="https://github.com/Bashirli/MyMovie/assets/109737647/ac4b971c-000d-4e26-b127-87e33075ab2c">
+
+<img width="881" alt="Frame 9" src="https://github.com/Bashirli/MyMovie/assets/109737647/7f13ecbb-4c46-430d-a17a-e7d2db41e567">
+
+
+
+<img width="881" alt="Frame 15" src="https://github.com/Bashirli/MyMovie/assets/109737647/eb0d340b-3f06-46dc-a35f-dea71c05bdad">
+
+
+<img width="881" alt="Frame 10" src="https://github.com/Bashirli/MyMovie/assets/109737647/c98fb704-08f8-415b-a1c4-8ca0e4eba8d2">
+
+
+<img width="881" alt="Frame 11" src="https://github.com/Bashirli/MyMovie/assets/109737647/9cfe0eb8-8ba1-47c8-a00f-fd275c3efeba">
+
+
+
+<img width="881" alt="Frame 12" src="https://github.com/Bashirli/MyMovie/assets/109737647/f90a08e8-5a76-454e-bd84-94a5e8f23c67">
+<img width="881" alt="Frame 13" src="https://github.com/Bashirli/MyMovie/assets/109737647/d2f63b37-67f2-4f60-bc60-14ab0ec41f34">
+<img width="881" alt="Frame 14" src="https://github.com/Bashirli/MyMovie/assets/109737647/2167450d-6a05-4d89-9b74-7085c871d4eb">
+
+
+
 
 
 
