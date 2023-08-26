@@ -37,8 +37,6 @@ Technologies I use in my app:
 - DiffUtil
 - Glide
 - Lottie
-- RecyclerViewDecorator
-- MotionLayout
 - Material Design 3 for design components.
 
 ------------------------------------------------------------------
