@@ -14,7 +14,8 @@ Layers of Clean Architecture:
 - Presentation
 
  
-![252948720-a4ebcd15-dab4-41e1-adc8-1d8c095ebb52](https://github.com/Bashirli/MyMovie/assets/109737647/97ec0e09-ad20-42c0-984d-504fe2df2e9a)
+
+![252948720-a4ebcd15-dab4-41e1-adc8-1d8c095ebb52](https://github.com/Bashirli/MyMovie/assets/109737647/a5a32c2e-f4b6-43b1-a8cd-3d81984accf1)
 
 
 
