@@ -65,7 +65,10 @@ App screens:
 
 <img width="881" alt="Frame 6" src="https://github.com/Bashirli/MyMovie/assets/109737647/0a85e549-eaf4-42c4-81cb-7f8ac4097535">
 
-<img width="881" alt="Frame 7" src="https://github.com/Bashirli/MyMovie/assets/109737647/f63aae5b-1121-4152-80f2-2e729ad55f6d">
+
+<img width="881" alt="Frame 7" src="https://github.com/Bashirli/MyMovie/assets/109737647/82b158fd-d2ce-420f-95e7-c3d320251e0a">
+
+
 
 <img width="881" alt="Frame 8" src="https://github.com/Bashirli/MyMovie/assets/109737647/ac4b971c-000d-4e26-b127-87e33075ab2c">
 
