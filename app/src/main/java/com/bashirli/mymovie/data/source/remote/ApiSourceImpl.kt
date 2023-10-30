@@ -104,7 +104,7 @@ class ApiSourceImpl @Inject constructor(
                 Resource.error(findExceptionMessage(response.errorBody()),null)
             }
         }catch (e:Exception){
-            Resource.error(e.localizedMessage,null)
+            Resource.error(e.localizedMessage as String,null)
         }
     }
 
@@ -147,7 +147,7 @@ class ApiSourceImpl @Inject constructor(
     }
 
     override suspend fun getTvSeriesCategories(): Resource<GenreDTO> {
-        return  handleResponse(service.getTvSeriesCategories())
+        return  handleResponse{ service.getTvSeriesCategories() }
     }
 
     override suspend fun getTvSeriesTrending(): Flow<PagingData<TvSeriesResult>> {
@@ -221,15 +221,15 @@ class ApiSourceImpl @Inject constructor(
     }
 
     override suspend fun getTvSeriesImages(): Resource<TvSeriesDTO> {
-        return  handleResponse(service.getTvSeriesImages())
+        return  handleResponse { service.getTvSeriesImages() }
     }
 
     override suspend fun getTvSeriesDetailsImages(seriesId: Int): Resource<ImagesDTO> {
-        return handleResponse(service.getTvSeriesDetailsImages(seriesId))
+        return handleResponse{ service.getTvSeriesDetailsImages(seriesId) }
     }
 
     override suspend fun getTvSeriesDetails(seriesId: Int): Resource<TvSeriesDetailsDTO> {
-        return  handleResponse(service.getTvSeriesDetails(seriesId))
+        return  handleResponse{service.getTvSeriesDetails(seriesId)}
     }
 
     override suspend fun getTvSeriesRecommendations(seriesId: Int): Flow<PagingData<TvSeriesResult>> = Pager(
@@ -245,33 +245,33 @@ class ApiSourceImpl @Inject constructor(
     ).flow
 
     override suspend fun getTvSeriesReviews(seriesId: Int): Resource<ReviewDTO> {
-        return handleResponse(service.getTvSeriesReviews(seriesId))
+        return handleResponse { service.getTvSeriesReviews(seriesId) }
     }
 
     override suspend fun getTvSeriesCredit(seriesId: Int): Resource<CastDTO> {
-        return handleResponse(service.getTvSeriesCredits(seriesId))
+        return handleResponse{service.getTvSeriesCredits(seriesId)}
     }
 
     override suspend fun getCategoryDetails(listId: Int): Resource<CategoryDetailsDTO> {
-        return handleResponse(service.getCategoryDetails(listId))
+        return handleResponse{service.getCategoryDetails(listId)}
     }
 
     override suspend fun getCelebDetails(personId: Int): Resource<CelebDetailsDTO> {
-        return  handleResponse(service.getCelebDetails(personId))
+        return  handleResponse{service.getCelebDetails(personId)}
     }
 
     override suspend fun getCelebMovies(personId: Int): Resource<CelebMoviesDTO> {
-        return  handleResponse(service.getCelebMovies(personId))
+        return  handleResponse{service.getCelebMovies(personId)}
     }
 
     override suspend fun getCelebTvSeries(personId: Int): Resource<CelebTvSeriesDTO> {
-        return  handleResponse(service.getCelebTvSeries(personId))
+        return  handleResponse { service.getCelebTvSeries(personId) }
     }
 
 
 
     override suspend fun getMovieCategories(): Resource<GenreDTO> {
-        return  handleResponse(service.getMovieCategories())
+        return  handleResponse { service.getMovieCategories() }
     }
 
     override suspend fun getSlideImages(): Resource<List<Result>> {
@@ -285,34 +285,36 @@ class ApiSourceImpl @Inject constructor(
                 Resource.error(findExceptionMessage(response.errorBody()),null)
             }
         }catch (e:Exception){
-            Resource.error(e.localizedMessage,null)
+            Resource.error(e.localizedMessage as String,null)
         }
     }
 
     override suspend fun getMovieDetails(movieId: Int): Resource<DetailsDTO> {
-        return  handleResponse(service.getMovieDetails(movieId))
+        return  handleResponse { service.getMovieDetails(movieId) }
     }
 
     override suspend fun getDetailsCredit(movieId: Int): Resource<CastDTO> {
-        return  handleResponse(service.getDetailsCredits(movieId))
+        return  handleResponse { service.getDetailsCredits(movieId) }
     }
 
     override suspend fun getDetailsImages(movieId: Int): Resource<ImagesDTO> {
-            return  handleResponse(service.getDetailsImages(movieId))
+            return  handleResponse{service.getDetailsImages(movieId)}
     }
 
-   private fun <T> handleResponse(response:Response<T>) : Resource<T>{
-       return  try {
-            if(response.isSuccessful){
-                response.body()?.let {
+
+    private suspend fun <T> handleResponse(response : suspend () -> Response<T> ) : Resource<T>{
+        return  try {
+            val _response = response.invoke()
+            if(_response.isSuccessful){
+                _response.body()?.let {
                     Resource.success(it)
                 }?:Resource.error("Error",null)
             }else{
-                Resource.error(findExceptionMessage(response.errorBody()),null)
+                Resource.error(findExceptionMessage(_response.errorBody()),null)
             }
-        }catch (e:Exception){
-            Resource.error(e.localizedMessage,null)
-        }
+            }catch (e:Exception){
+                Resource.error(e.localizedMessage as String,null)
+            }
     }
 
 }
